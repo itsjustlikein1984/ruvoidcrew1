@@ -316,3 +316,13 @@
 
 	message_admins(span_adminnotice("Incoming cross-sector newscaster article by [author_key] in channel [channel_name]."))
 	GLOB.news_network.submit_article(msg, author, channel_name)
+
+/datum/world_topic/discord_ooc
+	keyword = "ooc"
+	require_comms_key = TRUE
+
+/datum/world_topic/discord_ooc/Run(list/input)
+	var/sender = input["sender"]
+	var/msg = html_decode(input["msg"])
+	to_chat(world, "<span class='oocplain'><font color='#002eb8'><b>[Discord] <EM>[sender]:</EM> <span class='message linkify'>[msg]</span></b></font></span>")
+	return 1

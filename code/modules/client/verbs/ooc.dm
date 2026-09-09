@@ -129,6 +129,17 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		// VOIDCREW EDIT ADDITION END
 
 
+	var/ooc_webhook = CONFIG_GET(string/ooc_webhook_url)
+	if(ooc_webhook)
+		var/list/webhook_payload = list(
+			"username" = "OOC Radio",
+			"content" = "**[key]:** [msg]"
+		)
+		world.Export("[ooc_webhook]?wait=false", list(
+			"headers" = "Content-Type: application/json",
+			"data" = json_encode(webhook_payload)
+		))
+
 /proc/toggle_ooc(toggle = null)
 	if(toggle != null) //if we're specifically en/disabling ooc
 		if(toggle != GLOB.ooc_allowed)
