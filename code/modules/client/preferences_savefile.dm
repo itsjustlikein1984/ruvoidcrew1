@@ -318,11 +318,13 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	var/tree_key = "character[slot]"
 	var/list/save_data = savefile.get_entry(tree_key)
+	// VOIDCREW EDIT ADDITION BEGIN - CHARACTER_DB_BACKUP
 	if(isnull(save_data))
 		// файл проебал слот - бэкстэп ту маришка
 		save_data = load_character_from_sql(slot)
 		if(!isnull(save_data))
 			savefile.set_entry(tree_key, save_data)
+	// VOIDCREW EDIT ADDITION END
 	var/data_validity_integer = check_savedata_version(save_data)
 	if(IS_DATA_OBSOLETE(data_validity_integer)) //fatal, can't load any data
 		return FALSE
@@ -402,55 +404,12 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	//Quirks
 	save_data["all_quirks"] = all_quirks
-
+	
+	// VOIDCREW EDIT ADDITION BEGIN - CHARACTER_DB_BACKUP
 	INVOKE_ASYNC(src, PROC_REF(backup_character_to_sql), save_data) // - новое
+	// VOIDCREW EDIT ADDITION END
 
 	return TRUE
-
-/// Зеркалит JSON слота персонажа в MariaDB (preferences_backup).
-/// Игра продолжает работать и без БД — при отсутствии соединения просто тихо выходим.
-/datum/preferences/proc/backup_character_to_sql(list/save_data)
-	set waitfor = FALSE   // не блокируем вызывающий код
-	if(!load_and_save || !parent?.ckey || !save_data)
-		return
-	if(!SSdbcore.IsConnected())
-		return
-	var/datum/db_query/Q = SSdbcore.NewQuery(
-		"INSERT INTO [format_table_name("preferences_backup")] (ckey, slot, json_data) \
-		 VALUES (:ckey, :slot, :json) \
-		 ON DUPLICATE KEY UPDATE json_data = VALUES(json_data), backed_up_at = NOW()",
-		list(
-			"ckey" = parent.ckey,
-			"slot" = default_slot,
-			"json" = json_encode(save_data),
-		)
-	)
-	Q.Execute(async = TRUE, log_error = TRUE)
-	qdel(Q)
-
-/// Пытается вытащить JSON слота из MariaDB, если локальный файл пуст.
-/// Возвращает list или null.
-/datum/preferences/proc/load_character_from_sql(slot)
-	set waitfor = FALSE
-	if(!load_and_save || !parent?.ckey)
-		return null
-	if(!SSdbcore.IsConnected())
-		return null
-	var/datum/db_query/Q = SSdbcore.NewQuery(
-		"SELECT json_data FROM [format_table_name("preferences_backup")] \
-		 WHERE ckey = :ckey AND slot = :slot",
-		list("ckey" = parent.ckey, "slot" = slot)
-	)
-	if(!Q.Execute(async = TRUE, log_error = TRUE))
-		qdel(Q)
-		return null
-	var/result = null
-	if(Q.NextRow())
-		var/raw = Q.item[1]
-		if(raw)
-			result = json_decode(raw)
-	qdel(Q)
-	return result
 
 /datum/preferences/proc/switch_to_slot(new_slot)
 	// SAFETY: `load_character` performs sanitization on the slot number
