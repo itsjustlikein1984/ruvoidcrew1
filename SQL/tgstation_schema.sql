@@ -742,3 +742,7 @@ CREATE TABLE `tutorial_completions` (
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Set schema version (major.minor must match code/__DEFINES/subsystems.dm)
+INSERT INTO `schema_revision` (`major`, `minor`, `date`)
+VALUES (5, 33, NOW());

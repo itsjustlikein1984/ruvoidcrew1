@@ -131,14 +131,16 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 	var/ooc_webhook = CONFIG_GET(string/ooc_webhook_url)
 	if(ooc_webhook)
-		var/list/webhook_payload = list(
-			"username" = "OOC Radio",
-			"content" = "**[key]:** [msg]"
+		var/clean_msg = copytext_char(raw_msg, 1, 1900)
+		var/list/payload = list(
+			"username" = "[key] (OOC)",
+			"content" = clean_msg,
+			"allowed_mentions" = list("parse" = list())
 		)
-		world.Export("[ooc_webhook]?wait=false", list(
-			"headers" = "Content-Type: application/json",
-			"data" = json_encode(webhook_payload)
-		))
+		var/datum/http_request/request = new()
+		var/list/headers = list("Content-Type" = "application/json")
+		request.prepare(RUSTG_HTTP_METHOD_POST, ooc_webhook, json_encode(payload), list("Content-Type" = "application/json"), "tmp/ooc.json")
+		request.begin_async()
 
 /proc/toggle_ooc(toggle = null)
 	if(toggle != null) //if we're specifically en/disabling ooc

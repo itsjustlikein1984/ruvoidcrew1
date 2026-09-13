@@ -699,6 +699,8 @@
 
 /datum/config_entry/string/adminhelp_ahelp_link
 
+/datum/config_entry/string/ooc_webhook_url
+
 /datum/config_entry/flag/cache_assets
 	default = TRUE
 
