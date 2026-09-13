@@ -787,4 +787,3 @@
 /datum/config_entry/flag/generate_assets_in_init
 	default = FALSE
 
-/datum/config_entry/string/ooc_webhook_url

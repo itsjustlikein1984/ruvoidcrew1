@@ -5,4 +5,4 @@
 /// Размеры: только pt, кратные 6 (6pt, 12pt, 18pt, 24pt).
 /datum/font/tiny5
 	name = "Tiny5"
-	font_family = 'interface/fonts/Tiny5.ttf'
+	font_family = 'modular_voidcrew/features/tiny5_font/fonts/Tiny5.ttf'

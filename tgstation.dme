@@ -6673,7 +6673,6 @@
 #include "interface\skin.dmf"
 #include "interface\fonts\fonts_datum.dm"
 #include "interface\fonts\grand_9k.dm"
-#include "interface\fonts\tiny5.dm"
 #include "interface\fonts\pixellari.dm"
 #include "interface\fonts\spess_font.dm"
 #include "interface\fonts\tiny_unicode.dm"
@@ -7418,4 +7417,7 @@
 #include "voidcrew\turfs\open\floor\plating\asteroid.dm"
 #include "voidcrew\turfs\open\floor\plating\misc_plating.dm"
 #include "voidcrew\turfs\open\floor\plating\planet.dm"
+//ruVOIDCREW EDIT ADDITION BEGIN - MODULAR
+#include "modular_voidcrew\modular_voidcrew.dme"
+//ruVOIDCREW EDIT ADDITION END
 // END_INCLUDE

@@ -128,19 +128,9 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		translation?.begin()
 		// VOIDCREW EDIT ADDITION END
 
-
-	var/ooc_webhook = CONFIG_GET(string/ooc_webhook_url)
-	if(ooc_webhook)
-		var/clean_msg = copytext_char(raw_msg, 1, 1900)
-		var/list/payload = list(
-			"username" = "[key] (OOC)",
-			"content" = clean_msg,
-			"allowed_mentions" = list("parse" = list())
-		)
-		var/datum/http_request/request = new()
-		var/list/headers = list("Content-Type" = "application/json")
-		request.prepare(RUSTG_HTTP_METHOD_POST, ooc_webhook, json_encode(payload), list("Content-Type" = "application/json"), "tmp/ooc.json")
-		request.begin_async()
+	// VOIDCREW EDIT ADDITION BEGIN - DISCORD_OOC
+	forward_ooc_to_discord(raw_msg, key)
+	// VOIDCREW EDIT ADDITION END
 
 /proc/toggle_ooc(toggle = null)
 	if(toggle != null) //if we're specifically en/disabling ooc
