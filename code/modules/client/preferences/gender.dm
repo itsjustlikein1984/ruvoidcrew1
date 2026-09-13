@@ -5,7 +5,9 @@
 	priority = PREFERENCE_PRIORITY_GENDER
 
 /datum/preference/choiced/gender/init_possible_values()
+	// VOIDCREW EDIT CHANGE BEGIN - GENDER_LIST
 	return list(MALE, FEMALE)
+	// VOIDCREW EDIT CHANGE END
 
 /datum/preference/choiced/gender/apply_to_human(mob/living/carbon/human/target, value)
 	if(!target.dna.species.sexes)

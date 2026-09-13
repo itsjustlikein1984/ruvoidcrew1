@@ -390,7 +390,9 @@ GLOBAL_VAR(restart_counter)
 	game_state = (CONFIG_GET(number/extreme_popcap) && players >= CONFIG_GET(number/extreme_popcap)) //tells the hub if we are full
 
 	if (!host && hostedby)
-		features += "hosted by <b>pokecarp🐟</b>"
+		// VOIDCREW EDIT CHANGE BEGIN - HUB_STATUS
+		features += "hosted by <b>pokecarp</b>"
+		// VOIDCREW EDIT CHANGE END
 
 	if(length(features))
 		new_status += ": [jointext(features, ", ")]"
@@ -407,11 +409,12 @@ GLOBAL_VAR(restart_counter)
 				new_status += " | Shuttle: <b>[SSshuttle.emergency.getModeStr()] [SSshuttle.emergency.getTimerStr()]</b>"
 		else if(SSticker.current_state == GAME_STATE_FINISHED)
 			new_status += "<br><b>RESTARTING</b>"
+	// VOIDCREW EDIT REMOVAL BEGIN - HUB_STATUS
 	// if(SSmapping.current_map)
 	//	new_status += "<br>Map: <b>[SSmapping.current_map.map_path == CUSTOM_MAP_PATH ? "Uncharted Territory" : SSmapping.current_map.map_name]</b>"
 	// if(SSmap_vote.next_map_config)
 	//	new_status += "[SSmapping.current_map ? " | " : "<br>"]Next: <b>[SSmap_vote.next_map_config.map_path == CUSTOM_MAP_PATH ? "Uncharted Territory" : SSmap_vote.next_map_config.map_name]</b>"
-
+	// VOIDCREW EDIT REMOVAL END
 	status = new_status
 
 /world/proc/update_hub_visibility(new_visibility)

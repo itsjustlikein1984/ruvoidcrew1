@@ -744,5 +744,7 @@ CREATE TABLE `tutorial_completions` (
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Set schema version (major.minor must match code/__DEFINES/subsystems.dm)
+-- VOIDCREW EDIT ADDITION BEGIN - CHARACTER_DB_BACKUP
 INSERT INTO `schema_revision` (`major`, `minor`, `date`)
 VALUES (5, 33, NOW());
+-- VOIDCREW EDIT ADDITION END
