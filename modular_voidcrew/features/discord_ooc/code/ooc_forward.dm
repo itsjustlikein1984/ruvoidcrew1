@@ -26,6 +26,6 @@
 		ooc_webhook,
 		json_encode(payload),
 		list("Content-Type" = "application/json"),
-		"tmp/ooc.json"
+		""
 	)
 	request.begin_async()
