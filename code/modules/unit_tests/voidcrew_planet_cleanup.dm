@@ -25,6 +25,9 @@
 	site = allocate(/obj/structure/overmap/planet)
 	site.mapzone = zone
 	site.footprint = footprint
+	// Every delay assertion below is about a planet a crew actually landed on and left.
+	// The longer countdown a merely-charted surface gets is covered separately.
+	site.visited = TRUE
 	var/mob/living/basic/body = allocate(/mob/living/basic, inside)
 	body.mind_initialize()
 	TEST_ASSERT(body in zone.get_mind_mobs_in(footprint), "The fixture must reproduce a living body retaining its mind")
@@ -177,6 +180,7 @@
 	site.mapzone = zone
 	site.footprint = footprint
 	site.loaded = TRUE
+	site.visited = TRUE
 	var/slots_before = zone.used_slot_count()
 	body = allocate(/mob/living/basic, cleanup_turf)
 	body.mind_initialize()
@@ -230,3 +234,114 @@
 	TEST_ASSERT(QDELETED(footprint), "Planet teardown retained its footprint")
 	TEST_ASSERT_EQUAL(zone.used_slot_count(), slots_before - 1, "Planet teardown did not release its map slot")
 	TEST_ASSERT(!QDELETED(neighbour) && !QDELETED(neighbour_mob), "Planet teardown cleared the neighbouring encounter")
+
+/// A surface charted from orbit is on a clock too - a longer one, until somebody lands.
+/datum/unit_test/voidcrew_planet_cleanup_unvisited
+	var/obj/structure/overmap/planet/site
+
+/datum/unit_test/voidcrew_planet_cleanup_unvisited/Destroy()
+	if(!QDELETED(site))
+		site.cancel_despawn_timer()
+		// This fixture borrows the test level; it never owns or clears its turfs.
+		site.mapzone = null
+		site.footprint = null
+	return ..()
+
+/datum/unit_test/voidcrew_planet_cleanup_unvisited/Run()
+	var/turf/inside = run_loc_floor_bottom_left
+	var/datum/map_zone/zone = allocate(/datum/map_zone)
+	zone.z_levels = list(reservation)
+	var/datum/map_footprint/footprint = allocate(/datum/map_footprint)
+	footprint.z_value = inside.z
+	footprint.set_rect(inside.x, inside.y, 1, 1)
+	site = allocate(/obj/structure/overmap/planet)
+	site.mapzone = zone
+	site.footprint = footprint
+	site.loaded = TRUE
+
+	// Nothing has docked: this is a survey/transporter chart, and it gets the long delay.
+	// Literals, not the defines: the unit-test files are included ahead of
+	// voidcrew/_DEFINES/planet_defines.dm, so PLANET_*_DESPAWN_TIMER is not in scope here.
+	// Same reason every other delay assertion in this file spells its minutes out.
+	TEST_ASSERT(!site.visited, "A freshly built interior started out marked as visited")
+	TEST_ASSERT_EQUAL(site.get_despawn_delay(), 15 MINUTES, "A charted-but-never-docked interior did not get the unvisited delay")
+	TEST_ASSERT_NULL(site.get_interior_hold_remaining(), "An unarmed planet reported a hold countdown")
+
+	// The countdown must arm with no ship anywhere in the story - this is the whole bug:
+	// on_ship_undocked() used to be the only thing that ever armed one, so a surface
+	// nobody flew to never got a countdown and stayed resident until roundend.
+	site.check_start_despawn()
+	var/datum/timedevent/countdown = SStimer.timer_id_dict[site.despawn_timer_id]
+	TEST_ASSERT_NOTNULL(countdown, "A charted interior with nobody on it never armed a countdown")
+	TEST_ASSERT_EQUAL(countdown.wait, 15 MINUTES, "The unvisited countdown did not use the unvisited delay")
+	var/remaining = site.get_interior_hold_remaining()
+	TEST_ASSERT_NOTNULL(remaining, "An armed countdown reported no hold remaining to the readouts")
+	TEST_ASSERT(remaining <= 15 MINUTES, "The reported hold outlasted the countdown that produced it")
+
+	// A ship arriving is what "visited" means: the countdown stops, and when the crew
+	// leaves the planet drops to the ordinary abandonment clock.
+	// Moved in, not created in: `new(loc)` assigns loc without ever calling Entered(),
+	// so a ship allocated straight into the planet would never fire the handler. Docking
+	// really does move - ship.dm's complete_dock() and crash_land_on_planet() both
+	// forceMove(docked_object) - so this is the path production takes.
+	var/obj/structure/overmap/ship/ship = allocate(/obj/structure/overmap/ship, inside)
+	ship.forceMove(site)
+	TEST_ASSERT(site.visited, "A docked ship did not mark the interior visited")
+	TEST_ASSERT_NULL(site.despawn_timer_id, "A ship arriving did not cancel the charted-surface countdown")
+	TEST_ASSERT_NULL(site.get_interior_hold_remaining(), "A planet with a ship on it still reported a hold countdown")
+	TEST_ASSERT_EQUAL(site.get_despawn_delay(), 5 MINUTES, "A visited interior did not fall back to the abandonment delay")
+	ship.forceMove(inside)
+
+/// An empty planet may reap its fauna, but never animals or bodies in ships and outposts.
+/datum/unit_test/voidcrew_planet_mobs_protected_areas
+	var/turf/protected_turf
+	var/area/original_area
+
+/datum/unit_test/voidcrew_planet_mobs_protected_areas/Destroy()
+	if(protected_turf && original_area)
+		protected_turf.change_area(get_area(protected_turf), original_area)
+	return ..()
+
+/datum/unit_test/voidcrew_planet_mobs_protected_areas/Run()
+	protected_turf = run_loc_floor_bottom_left
+	original_area = get_area(protected_turf)
+	var/turf/surface_turf = get_step(protected_turf, EAST)
+	var/turf/neighbour_turf = get_step(surface_turf, EAST)
+	var/datum/map_footprint/footprint = allocate(/datum/map_footprint)
+	footprint.z_value = protected_turf.z
+	footprint.set_rect(protected_turf.x, protected_turf.y, 2, 1)
+	var/datum/planet_mob_tracker/tracker = allocate(/datum/planet_mob_tracker)
+	tracker.surface_z = protected_turf.z
+	tracker.footprint = footprint
+	TEST_ASSERT(!SSplanet_mobs.check_players(tracker), "The cleanup fixture must have no connected players")
+
+	var/mob/living/basic/slime/pet_slime = allocate(/mob/living/basic/slime, protected_turf)
+	var/mob/living/carbon/human/consistent/stored_body = allocate(/mob/living/carbon/human/consistent, protected_turf)
+	stored_body.death()
+	TEST_ASSERT_NULL(stored_body.mind, "The stored corpse must rely on area protection, not a player mind")
+	var/mob/living/basic/neighbour_mob = allocate(/mob/living/basic, neighbour_turf)
+
+	var/list/protected_area_types = list(
+		/area/shuttle/voidcrew/phalanx/nanites/a,
+		/area/shuttle/voidcrew/phalanx/medbay/a,
+		/area/voidcrew/trader_outpost,
+		/area/voidcrew/outpost_hangar,
+		/area/voidcrew/player_outpost,
+	)
+	for(var/area_type in protected_area_types)
+		// Ships are not singletons: look through all areas before creating a test fixture.
+		var/area/protected_area = locate(area_type) in GLOB.areas
+		if(!protected_area)
+			protected_area = allocate(area_type)
+		protected_turf.change_area(get_area(protected_turf), protected_area)
+		var/mob/living/basic/surface_mob = allocate(/mob/living/basic, surface_turf)
+		var/mob/living/carbon/human/consistent/surface_body = allocate(/mob/living/carbon/human/consistent, surface_turf)
+		surface_body.death()
+		tracker.populated = TRUE
+		TEST_ASSERT_EQUAL(SSplanet_mobs.count_planet_mobs(tracker), 1, "[area_type]: ship/outpost animals counted as planet fauna")
+		SSplanet_mobs.despawn_planet_mobs(tracker)
+		TEST_ASSERT(!QDELETED(pet_slime), "[area_type]: cleanup deleted a protected slime")
+		TEST_ASSERT(!QDELETED(stored_body), "[area_type]: cleanup deleted a stored human corpse")
+		TEST_ASSERT(QDELETED(surface_mob) && QDELETED(surface_body), "[area_type]: cleanup stopped clearing ordinary planet mobs and corpses")
+		TEST_ASSERT(!QDELETED(neighbour_mob), "[area_type]: cleanup escaped the planet footprint")
+		TEST_ASSERT(!tracker.populated, "[area_type]: cleanup did not finish depopulating the planet")
