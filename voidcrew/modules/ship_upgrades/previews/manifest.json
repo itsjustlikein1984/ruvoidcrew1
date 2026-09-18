@@ -209,6 +209,30 @@
    },
    "src_md5": "a839f5155f270b9e3834c068605c8f34"
   },
+  "grey_pill": {
+   "png": "ship_grey_pill.png",
+   "width": 21,
+   "height": 29,
+   "slots": {
+    "engineering": [
+     9,
+     10
+    ],
+    "bridge": [
+     9,
+     17
+    ],
+    "special_2": [
+     13,
+     16
+    ],
+    "special": [
+     14,
+     16
+    ]
+   },
+   "src_md5": "5964ce0c45d85881223a781ed031f7b5"
+  },
   "kilo_a": {
    "png": "ship_kilo_a.png",
    "width": 24,
@@ -1615,6 +1639,266 @@
      ],
      "png": "goon_goon_cockpit_command_void.png",
      "src_md5": "7b73ae2757810ec80b5e135001af5926"
+    }
+   }
+  },
+  "grey_pill/rock_bottom.dmm": {
+   "width": 5,
+   "height": 5,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 5,
+     "height": 5,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_rock_bottom_standard.png",
+     "src_md5": "c5e0d12947ef6d2db35fbbd6b6385dee"
+    }
+   }
+  },
+  "grey_pill/nothing_special.dmm": {
+   "width": 1,
+   "height": 1,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 1,
+     "height": 1,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_nothing_special_standard.png",
+     "src_md5": "e2d3ecd112a14b3c5f5fb5f0bc7f35be"
+    }
+   }
+  },
+  "grey_pill/basic_gear.dmm": {
+   "width": 5,
+   "height": 5,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 5,
+     "height": 5,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_basic_gear_standard.png",
+     "src_md5": "b6d1fdd774559f6168b37f9acf64e8d8"
+    }
+   }
+  },
+  "grey_pill/orm.dmm": {
+   "width": 1,
+   "height": 1,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 1,
+     "height": 1,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_orm_standard.png",
+     "src_md5": "190e8a2ec6993c921524db90b1350627"
+    }
+   }
+  },
+  "grey_pill/better_weapons.dmm": {
+   "width": 5,
+   "height": 5,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 5,
+     "height": 5,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_better_weapons_standard.png",
+     "src_md5": "e96cb4a167a42f4671b826e0cfd6040d"
+    }
+   }
+  },
+  "grey_pill/better_medical_supply.dmm": {
+   "width": 5,
+   "height": 5,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 5,
+     "height": 5,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_better_medical_supply_standard.png",
+     "src_md5": "32b652c07d00bf7aef16a1e2c2f0f428"
+    }
+   }
+  },
+  "grey_pill/premium.dmm": {
+   "width": 5,
+   "height": 5,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 5,
+     "height": 5,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_premium_standard.png",
+     "src_md5": "353de78c0536e52b9f7225dca9f424e1"
+    }
+   }
+  },
+  "grey_pill/silo.dmm": {
+   "width": 1,
+   "height": 1,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 1,
+     "height": 1,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_silo_standard.png",
+     "src_md5": "dedfeb523bff1f7658a862129a561b0d"
+    }
+   }
+  },
+  "grey_pill/baseline_engineering.dmm": {
+   "width": 5,
+   "height": 5,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 5,
+     "height": 5,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_baseline_engineering_standard.png",
+     "src_md5": "84ee289128469e451ce248405cda4f13"
+    }
+   }
+  },
+  "grey_pill/teg.dmm": {
+   "width": 5,
+   "height": 5,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 5,
+     "height": 5,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_teg_standard.png",
+     "src_md5": "035b80ae7b6ee5da19606b6eb9caf790"
+    }
+   }
+  },
+  "grey_pill/eva_suit_holder.dmm": {
+   "width": 1,
+   "height": 1,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 1,
+     "height": 1,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_eva_suit_holder_standard.png",
+     "src_md5": "05a97fc5fc98418405b9b41bef159919"
+    }
+   }
+  },
+  "grey_pill/mining_closet.dmm": {
+   "width": 1,
+   "height": 1,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 1,
+     "height": 1,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_mining_closet_standard.png",
+     "src_md5": "77327bd88707067f5caeebfc229880b3"
+    }
+   }
+  },
+  "grey_pill/mining_vendor.dmm": {
+   "width": 1,
+   "height": 1,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 1,
+     "height": 1,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_mining_vendor_standard.png",
+     "src_md5": "a79742df57c0bc85ca9c5fb77aab6ca2"
     }
    }
   },
