@@ -209,6 +209,30 @@
    },
    "src_md5": "a839f5155f270b9e3834c068605c8f34"
   },
+  "grey_pill": {
+   "png": "ship_grey_pill.png",
+   "width": 21,
+   "height": 29,
+   "slots": {
+    "engineering": [
+     9,
+     10
+    ],
+    "bridge": [
+     9,
+     17
+    ],
+    "special_2": [
+     13,
+     16
+    ],
+    "special": [
+     14,
+     16
+    ]
+   },
+   "src_md5": "5964ce0c45d85881223a781ed031f7b5"
+  },
   "kilo_a": {
    "png": "ship_kilo_a.png",
    "width": 24,
@@ -227,7 +251,7 @@
      7
     ]
    },
-   "src_md5": "09796ee032e8749cddd344630639bbf1"
+   "src_md5": "2af4b68ab397631f8c74480d2fa612ee"
   },
   "kilo_b": {
    "png": "ship_kilo_b.png",
@@ -247,7 +271,7 @@
      7
     ]
    },
-   "src_md5": "00d98af180647014875aa298ae5a2210"
+   "src_md5": "a1c85c7047c3fca6c21cc45f431b04f0"
   },
   "kilo_c": {
    "png": "ship_kilo_c.png",
@@ -267,7 +291,7 @@
      7
     ]
    },
-   "src_md5": "649b4433ed18392982c1c1c566ef1ea2"
+   "src_md5": "eb53bd833146914a6282b06611d60ca8"
   },
   "kilo_d": {
    "png": "ship_kilo_d.png",
@@ -287,7 +311,7 @@
      7
     ]
    },
-   "src_md5": "cfbbc8e989d046040e70d5f5f15976c7"
+   "src_md5": "c94b1963573afb99a371e0406dd2ba84"
   },
   "nano_phalanx_a": {
    "png": "ship_nano_phalanx_a.png",
@@ -442,7 +466,7 @@
      7
     ]
    },
-   "src_md5": "df7344b3ef406e640d1fef565058234c"
+   "src_md5": "5f38590742794e6cfe7660b5c984eb3e"
   },
   "scarab_b": {
    "png": "ship_scarab_b.png",
@@ -466,7 +490,7 @@
      7
     ]
    },
-   "src_md5": "363697945e0f5d6c93f4238c0d4a0916"
+   "src_md5": "8e2b39eebdb2cd59c2b18f890cbe4b08"
   },
   "scarab_c": {
    "png": "ship_scarab_c.png",
@@ -490,7 +514,39 @@
      7
     ]
    },
-   "src_md5": "f9c0406dac6267d3f0b450e7fd30e604"
+   "src_md5": "250efd19fcf01d79756a98e68ca8af2e"
+  },
+  "super_modular_ship": {
+   "png": "ship_super_modular_ship.png",
+   "width": 47,
+   "height": 47,
+   "slots": {
+    "engine_room": [
+     14,
+     9
+    ],
+    "third_room": [
+     14,
+     16
+    ],
+    "first_room": [
+     14,
+     23
+    ],
+    "bridge": [
+     17,
+     30
+    ],
+    "fourth_room": [
+     25,
+     16
+    ],
+    "second_room": [
+     25,
+     23
+    ]
+   },
+   "src_md5": "c8c7ef8663da666f7e1718cb31572203"
   },
   "test_modular": {
    "png": "ship_test_modular.png",
@@ -1615,6 +1671,246 @@
      ],
      "png": "goon_goon_cockpit_command_void.png",
      "src_md5": "7b73ae2757810ec80b5e135001af5926"
+    }
+   }
+  },
+  "grey_pill/rock_bottom.dmm": {
+   "width": 5,
+   "height": 5,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 5,
+     "height": 5,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_rock_bottom_standard.png",
+     "src_md5": "c5e0d12947ef6d2db35fbbd6b6385dee"
+    }
+   }
+  },
+  "grey_pill/nothing_special.dmm": {
+   "width": 1,
+   "height": 1,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 1,
+     "height": 1,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_nothing_special_standard.png",
+     "src_md5": "e2d3ecd112a14b3c5f5fb5f0bc7f35be"
+    }
+   }
+  },
+  "grey_pill/basic_gear.dmm": {
+   "width": 5,
+   "height": 5,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 5,
+     "height": 5,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_basic_gear_standard.png",
+     "src_md5": "b6d1fdd774559f6168b37f9acf64e8d8"
+    }
+   }
+  },
+  "grey_pill/orm.dmm": {
+   "width": 1,
+   "height": 1,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 1,
+     "height": 1,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_orm_standard.png",
+     "src_md5": "190e8a2ec6993c921524db90b1350627"
+    }
+   }
+  },
+  "grey_pill/better_weapons.dmm": {
+   "width": 5,
+   "height": 5,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 5,
+     "height": 5,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_better_weapons_standard.png",
+     "src_md5": "e96cb4a167a42f4671b826e0cfd6040d"
+    }
+   }
+  },
+  "grey_pill/better_medical_supply.dmm": {
+   "width": 5,
+   "height": 5,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 5,
+     "height": 5,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_better_medical_supply_standard.png",
+     "src_md5": "32b652c07d00bf7aef16a1e2c2f0f428"
+    }
+   }
+  },
+  "grey_pill/premium.dmm": {
+   "width": 5,
+   "height": 5,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 5,
+     "height": 5,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_premium_standard.png",
+     "src_md5": "353de78c0536e52b9f7225dca9f424e1"
+    }
+   }
+  },
+  "grey_pill/silo.dmm": {
+   "width": 1,
+   "height": 1,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 1,
+     "height": 1,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_silo_standard.png",
+     "src_md5": "dedfeb523bff1f7658a862129a561b0d"
+    }
+   }
+  },
+  "grey_pill/baseline_engineering.dmm": {
+   "width": 5,
+   "height": 5,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 5,
+     "height": 5,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_baseline_engineering_standard.png",
+     "src_md5": "84ee289128469e451ce248405cda4f13"
+    }
+   }
+  },
+  "grey_pill/eva_suit_holder.dmm": {
+   "width": 1,
+   "height": 1,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 1,
+     "height": 1,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_eva_suit_holder_standard.png",
+     "src_md5": "05a97fc5fc98418405b9b41bef159919"
+    }
+   }
+  },
+  "grey_pill/mining_closet.dmm": {
+   "width": 1,
+   "height": 1,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 1,
+     "height": 1,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_mining_closet_standard.png",
+     "src_md5": "77327bd88707067f5caeebfc229880b3"
+    }
+   }
+  },
+  "grey_pill/mining_vendor.dmm": {
+   "width": 1,
+   "height": 1,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 1,
+     "height": 1,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "grey_pill_mining_vendor_standard.png",
+     "src_md5": "a79742df57c0bc85ca9c5fb77aab6ca2"
     }
    }
   },
@@ -3021,6 +3317,146 @@
      ],
      "png": "scarab_scarab_cargo_med_syndicate.png",
      "src_md5": "66e8ff01f98b321a659511fbb302edcd"
+    }
+   }
+  },
+  "super_modular_ship/bridge_basic.dmm": {
+   "width": 13,
+   "height": 6,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 13,
+     "height": 6,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "super_modular_ship_bridge_basic_standard.png",
+     "src_md5": "d3f6ec7c4c762ab8a5fd767738176b13"
+    }
+   }
+  },
+  "super_modular_ship/space.dmm": {
+   "width": 8,
+   "height": 7,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 8,
+     "height": 7,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "super_modular_ship_space_standard.png",
+     "src_md5": "13a9383fd435e436c5668c33f412a078"
+    }
+   }
+  },
+  "super_modular_ship/empty_space.dmm": {
+   "width": 8,
+   "height": 7,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 8,
+     "height": 7,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "super_modular_ship_empty_space_standard.png",
+     "src_md5": "cbef696111df7f08fd15d842f7fa0d22"
+    }
+   }
+  },
+  "super_modular_ship/void.dmm": {
+   "width": 8,
+   "height": 7,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 8,
+     "height": 7,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "super_modular_ship_void_standard.png",
+     "src_md5": "cb63250e6e8e92791c77486ca3220e68"
+    }
+   }
+  },
+  "super_modular_ship/next_best_thing_to_describe_space.dmm": {
+   "width": 8,
+   "height": 7,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 8,
+     "height": 7,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "super_modular_ship_next_best_thing_to_describe_space_standard.png",
+     "src_md5": "50af747a5978556f2e548278313912b7"
+    }
+   }
+  },
+  "super_modular_ship/bare_minimum.dmm": {
+   "width": 19,
+   "height": 7,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 19,
+     "height": 7,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "super_modular_ship_bare_minimum_standard.png",
+     "src_md5": "68fbdbc04500b5830b214368150a427a"
+    }
+   }
+  },
+  "super_modular_ship/medical.dmm": {
+   "width": 8,
+   "height": 7,
+   "connector": [
+    1,
+    1
+   ],
+   "themes": {
+    "standard": {
+     "width": 8,
+     "height": 7,
+     "connector": [
+      1,
+      1
+     ],
+     "png": "super_modular_ship_medical_standard.png",
+     "src_md5": "dc22cec7af3bc4b86ad0b86a31f7d585"
     }
    }
   },

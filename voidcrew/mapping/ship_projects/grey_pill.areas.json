@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Ship": "/datum/map_template/shuttle/voidcrew/grey_pill",
+  "Areas": [
+    {
+      "Path": "/area/shuttle/voidcrew/grey_pill/grey_pill_general_area",
+      "Name": "Grey Pill General Area",
+      "IconState": "station"
+    }
+  ]
+}
