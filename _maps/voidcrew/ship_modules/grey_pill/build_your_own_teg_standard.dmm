@@ -1,0 +1,129 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"cVQ" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer,
+/turf/template_noop,
+/area/template_noop)
+"eWh" = (
+/obj/modular_map_connector,
+/obj/machinery/portable_atmospherics/canister/plasma,
+/turf/open/floor/mineral/titanium/tiled/yellow,
+/area/template_noop)
+"fzI" = (
+/obj/machinery/pipedispenser,
+/turf/open/floor/mineral/titanium/tiled/yellow,
+/area/template_noop)
+"fDu" = (
+/obj/machinery/atmospherics/components/binary/circulator,
+/turf/template_noop,
+/area/template_noop)
+"gJX" = (
+/obj/effect/spawner/random/trash/mess,
+/turf/template_noop,
+/area/template_noop)
+"huz" = (
+/obj/item/storage/belt/utility/full/engi,
+/turf/open/floor/mineral/titanium/tiled/yellow,
+/area/template_noop)
+"izc" = (
+/obj/machinery/atmospherics/components/binary/circulator/cold,
+/turf/open/floor/mineral/titanium/tiled/yellow,
+/area/template_noop)
+"iCC" = (
+/obj/machinery/airalarm/directional/west{
+	pixel_y = 5
+	},
+/obj/machinery/firealarm/directional/west{
+	pixel_y = -7;
+	pixel_x = -24
+	},
+/obj/machinery/light/directional/west,
+/obj/effect/spawner/random/trash/mess,
+/turf/template_noop,
+/area/template_noop)
+"jKI" = (
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/template_noop)
+"mfS" = (
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/internals/oxygen,
+/obj/item/tank/internals/oxygen,
+/obj/item/tank/internals/oxygen/red,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/effect/spawner/random/structure/closet_empty,
+/obj/item/extinguisher,
+/obj/item/extinguisher/mini,
+/obj/item/tank/internals/oxygen/yellow,
+/obj/item/tank/internals/emergency_oxygen/engi/empty,
+/obj/item/tank/internals/emergency_oxygen/engi/empty,
+/obj/effect/spawner/random/trash/mess,
+/turf/open/floor/mineral/titanium/tiled/yellow,
+/area/template_noop)
+"nct" = (
+/obj/machinery/portable_atmospherics/canister/plasma,
+/turf/open/floor/mineral/titanium/tiled/yellow,
+/area/template_noop)
+"oxi" = (
+/obj/machinery/power/apc/auto_name/directional/east,
+/obj/machinery/light/directional/east,
+/obj/machinery/power/thermoelectric_generator,
+/turf/template_noop,
+/area/template_noop)
+"pzq" = (
+/turf/template_noop,
+/area/template_noop)
+"rrG" = (
+/obj/effect/spawner/random/trash/mess,
+/turf/open/floor/mineral/titanium/tiled/yellow,
+/area/template_noop)
+"ryG" = (
+/obj/machinery/atmospherics/components/unary/thermomachine,
+/turf/open/floor/mineral/titanium/tiled/yellow,
+/area/template_noop)
+"syy" = (
+/obj/machinery/autolathe/hacked,
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/iron/fifty,
+/turf/open/floor/mineral/titanium/tiled/yellow,
+/area/template_noop)
+"vxc" = (
+/turf/open/floor/mineral/titanium/tiled/yellow,
+/area/template_noop)
+
+(1,1,1) = {"
+syy
+jKI
+izc
+vxc
+eWh
+"}
+(2,1,1) = {"
+nct
+iCC
+cVQ
+pzq
+rrG
+"}
+(3,1,1) = {"
+huz
+pzq
+gJX
+pzq
+vxc
+"}
+(4,1,1) = {"
+vxc
+oxi
+gJX
+fDu
+vxc
+"}
+(5,1,1) = {"
+mfS
+jKI
+nct
+fzI
+ryG
+"}
