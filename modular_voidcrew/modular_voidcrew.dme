@@ -1,7 +1,6 @@
 // VOIDCREW modular build entry point.
 // Подключается одной строкой из tgstation.dme в самом конце.
 
-#include "features\tiny5_font\includes.dm"
 #include "features\discord_ooc\includes.dm"
 #include "features\character_db_backup\includes.dm"
 #include "features\hub_status\includes.dm"
