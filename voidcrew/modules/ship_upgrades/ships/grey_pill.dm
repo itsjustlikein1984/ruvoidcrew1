@@ -102,17 +102,6 @@
 	map_file = "grey_pill/baseline_engineering.dmm"
 	is_default = TRUE
 
-/datum/ship_upgrade_module/grey_pill_teg
-	part_cost = list(PART_CLASS_TRADE = 2, PART_CLASS_MISC = 4)
-	id = "teg"
-	name = "TEG"
-	slot = "engineering"
-	for_ship = /datum/map_template/shuttle/voidcrew/grey_pill
-	for_theme = list("standard")
-	map_file = "grey_pill/teg.dmm"
-	is_default = FALSE
-	desc = "Replaces everything with a TEG"
-
 /datum/ship_upgrade_module/grey_pill_special_2_basic
 	id = "special_2_basic"
 	name = "EVA suit holder"
@@ -144,3 +133,14 @@
 	map_file = "grey_pill/mining_vendor.dmm"
 	is_default = FALSE
 	desc = "Replaces EVA suit storage with a vendor\n\nWorks well with ORM upgrade"
+
+/datum/ship_upgrade_module/grey_pill_build_your_own_teg
+	part_cost = list(PART_CLASS_TRADE = 2, PART_CLASS_MISC = 4)
+	id = "build_your_own_teg"
+	name = "\"Build Your Own Teg\""
+	slot = "engineering"
+	for_ship = /datum/map_template/shuttle/voidcrew/grey_pill
+	for_theme = list("standard")
+	map_file = "grey_pill/build_your_own_teg.dmm"
+	is_default = FALSE
+	desc = "Teg but its lego\n\nGood luck setting this up cause otherwise this hull wont move at all\nI recomend turning APC while making it, otherwise you can get stuck"

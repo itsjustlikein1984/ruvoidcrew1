@@ -6,6 +6,10 @@
 "aMm" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/voidcrew/grey_pill)
+"bGg" = (
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/turf/open/floor/plating,
+/area/shuttle/voidcrew/grey_pill)
 "cAc" = (
 /obj/structure/cable,
 /turf/open/floor/mineral/titanium/tiled,
@@ -72,6 +76,7 @@
 /obj/modular_map_root/ship_upgrade{
 	key = "engineering"
 	},
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
 /turf/open/floor/plating,
 /area/shuttle/voidcrew/grey_pill)
 "lSn" = (
@@ -119,6 +124,10 @@
 /area/shuttle/voidcrew/grey_pill)
 "wiH" = (
 /turf/open/floor/mineral/titanium/tiled/blue,
+/area/shuttle/voidcrew/grey_pill)
+"xKc" = (
+/obj/structure/window/reinforced/plasma/spawner/directional/west,
+/turf/open/floor/plating,
 /area/shuttle/voidcrew/grey_pill)
 
 (1,1,1) = {"
@@ -387,8 +396,8 @@ tkw
 cAc
 tfp
 lSn
-kwE
-kwE
+xKc
+xKc
 lCm
 aMm
 dNh
@@ -511,9 +520,9 @@ gNq
 cAc
 shX
 lSn
-kwE
-kwE
-kwE
+bGg
+bGg
+bGg
 aMm
 dNh
 dNh

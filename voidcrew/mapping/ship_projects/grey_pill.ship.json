@@ -128,17 +128,6 @@
         "Default": true
       },
       {
-        "ID": "teg",
-        "Name": "TEG",
-        "Slot": "engineering",
-        "File": "grey_pill/teg.dmm",
-        "Description": "Replaces everything with a TEG",
-        "Themes": [
-          "standard"
-        ],
-        "Default": false
-      },
-      {
         "ID": "special_2_basic",
         "Name": "EVA suit holder",
         "Slot": "special_2",
@@ -170,6 +159,17 @@
           "standard"
         ],
         "Default": false
+      },
+      {
+        "ID": "build_your_own_teg",
+        "Name": "\"Build Your Own Teg\"",
+        "Slot": "engineering",
+        "File": "grey_pill/build_your_own_teg.dmm",
+        "Description": "Teg but its lego\n\nGood luck setting this up cause otherwise this hull wont move at all\nI recomend turning APC while making it, otherwise you can get stuck",
+        "Themes": [
+          "standard"
+        ],
+        "Default": false
       }
     ]
   },
@@ -189,6 +189,10 @@
       "combat": 2,
       "science": 1
     },
+    "module/build_your_own_teg": {
+      "misc": 4,
+      "trade": 2
+    },
     "module/mining_closet": {
       "misc": 2
     },
@@ -206,10 +210,6 @@
     "module/silo": {
       "misc": 2,
       "science": 1
-    },
-    "module/teg": {
-      "misc": 4,
-      "trade": 2
     },
     "ship": {}
   },
