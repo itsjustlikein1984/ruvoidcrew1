@@ -9,7 +9,6 @@
 /proc/forward_ooc_to_discord(raw_msg, sender_key)
 	var/ooc_webhook = CONFIG_GET(string/ooc_webhook_url)
 	if(!ooc_webhook)
-		message_admins("DISCORD_OOC ОШИБКА: В конфиге не найден ooc_webhook_url!")
 		return
 
 	var/clean_msg = copytext_char(raw_msg, 1, 1900)
@@ -35,6 +34,5 @@
 	var/datum/http_response/response = request.into_response()
 
 	if(response.errored || response.status_code >= 400)
-		message_admins("DISCORD_OOC ОШИБКА: код [response.status_code] | ответ: [response.body] | ошибка: [response.error]")
-	else
-		message_admins("DISCORD_OOC: Успешно доставлено в Discord! (код [response.status_code])")
+		log_world("DISCORD_OOC: Ошибка отправки вебхука ([response.status_code]): [response.error || response.body]")
+
